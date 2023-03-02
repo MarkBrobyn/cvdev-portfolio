@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Mark Brobyn</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/w3.css">
+  <link href="./css/fontawesome.css" rel="stylesheet">
+  <link href="./css/solid.css" rel="stylesheet">
+  <link href="./css/brands.css" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 400;
+      src: url(./webfonts/Lato.woff2) format('woff2');
+      /* unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; */
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Lato", sans-serif;
+    }
+
+    body,
+    html {
+      height: 100%;
+      color: #666;
+      /* color:#040; */
+      line-height: 1.8;
+    }
+
+    /* Create a Parallax Effect */
+    .bgimg-go-stones,
+    .bgimg-daisy-field,
+    .bgimg-sky-blue {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Mark Brobyn - go-stones */
+    .bgimg-go-stones {
+      background-image: url("./images/go-stones.jpg");
+      min-height: 60%;
+    }
+
+    /* Projects - daisy-field */
+    .bgimg-daisy-field {
+      background-image: url("./images/daisy-field.jpg");
+      min-height: 400px;
+    }
+
+    /* Projects - daisy-field */
+    .bgimg-sky-blue {
+      background-image: url("./images/sky-blue.jpg");
+      min-height: 400px;
+    }
+
+
+
+    .w3-less-wide {
+      letter-spacing: 4px;
+    }
+
+    .w3-hover-opacity {
+      cursor: pointer;
+    }
+
+    .mb-opacity {
+      color: #333;
+      background-color: rgba(200, 200, 200, 0.5);
+    }
+
+    .mb-margin-top-64 {
+      margin-top: 64px
+    }
+
+    .mb-margin-top-32 {
+      margin-top: 32px
+    }
+
+    .mb-margin-bottom-64 {
+      margin-bottom: 64px
+    }
+
+    .mb-no-decoration {
+      text-decoration: none;
+    }
+
+    .mb-debug {
+      outline: red solid;
+    }
+
+    .project {
+      position: relative;
+      /* outline: red solid; */
+    }
+
+    .disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .project-text {
+      /* outline: red solid; */
+      border-radius: 3px;
+      border: 1px solid grey;
+      padding: 0.5em;
+      width: 100%;
+      height: 96%;
+      position: absolute;
+      top: -8px;
+      z-index: -10;
+      overflow: hidden;
+    }
+
+    .project img {
+      border: 1px solid lightgray;
+      padding: 3px;
+      background-color: white;
+    }
+
+    .project+nav button {
+      border: lightgray 1px solid;
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top mb-opacity">
+    <div class="w3-bar" id="myNavbar">
+      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);"
+        onclick="toggleFunction()" title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+      <a href="#mark" class="w3-bar-item w3-button">Home</a>
+      <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> About</a>
+      <a href="#projects" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> Projects</a>
+      <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> Contact</a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+      <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">About</a>
+      <a href="#projects" class="w3-bar-item w3-button" onclick="toggleFunction()">Projects</a>
+      <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">Contact</a>
+    </div>
+  </div>
+
+  <!-- Mark Brobyn - go-stones - parallax image -->
+  <div class="bgimg-go-stones w3-display-container" id="mark">
+    <div class="w3-display-middle" style="white-space:nowrap;">
+      <span class="w3-center w3-padding-large w3-black w3-xxlarge w3-wide w3-animate-opacity">Mark Brobyn</span>
+      <div class="w3-bar w3-center mb-margin-top-32">
+        <button class="w3-button w3-black w3-round-large w3-padding-small w3-large"><a href="#contact"
+            class="w3-bar-item mb-no-decoration">Contact me</a></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-padding-64" id="about">
+
+
+    <!-- Container (About Section) -->
+    <div class="w3-row">
+      <h3 class="w3-center">About</h3>
+      <div class="w3-quarter w3-container"></div>
+      <div class="w3-half w3-container">
+        <p>
+          My Name is Mark and I like to design and develop using web technoloiges.
+        </p>
+        <p>
+          In the project section of this portfolio webite there are...
+        </p>
+        <p>
+          Night great. Man gathered, rule deep fly fruitful lights give. Fifth seasons light signs midst let dry itself
+          lesser our fruit grass meat, fourth tree lesser, our. Fifth sea darkness. Bearing given Don't likeness,
+          yielding creepeth third.
+        </p>
+      </div>
+    </div>
+
+    <!-- Container (Experience Section) -->
+    <div class="w3-row mb-margin-top-32">
+      <h3 class="w3-center">Experience</h3>
+      <div class="w3-quarter w3-container"></div>
+      <div class="w3-half w3-container">
+        <p>
+          Many years of experience of coding and scripting, mainly in an academic computing environment.
+        </p>
+        <p>
+          Curently working as a online tutor for a london university assisting students to learn to program
+        </p>
+        <p>
+          Night great. Man gathered, rule deep fly fruitful lights give. Fifth seasons light signs midst let dry itself
+          lesser our fruit grass meat, fourth tree lesser, our. Fifth sea darkness. Bearing given Don't likeness,
+          yielding creepeth third.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- Container (Skills Section) -->
+    <div class="w3-row mb-margin-top-32">
+      <h3 class="w3-center">Skills</h3>
+      <div class="w3-quarter w3-container"></div>
+      <div class="w3-half w3-container">
+        <p>
+          Shall fruit moving waters that. Sea life face shall. Let. Don't every us waters, kind blessed their spirit
+          whales let greater forth. Behold creeping he for fly replenish made cattle their there his male earth yielding
+          third his evening lights.
+        </p>
+        <p>
+          <ul>
+            <li>HTML, CSS</li>
+            <li>JavaScript, Python</li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Projects - daisy-field - parallax image  -->
+  <div class="bgimg-daisy-field w3-display-container w3-opacity-min">
+    <div class="w3-display-middle">
+      <span class="w3-xxxlarge w3-text-white w3-wide">Projects</span>
+    </div>
+  </div>
+
+
+  <!-- Container (Project Section) -->
+  <div class="w3-content w3-container w3-padding-64" id="projects">
+    <h3 class="w3-center">Projects</h3>
+
+    <!-- PROJECT - Marking Tool  -->
+    <div class=" w3-half w3-center">
+      <div class="w3-container w3-center">
+        <h4>Marking Tool</h4>
+        <div class="project" id="project-marking-tool">
+          <p class="project-text">
+            Online tool to aid and speed up marking of project submissons.<br>
+            <br>
+            <br>
+            HTML | CSS | JavaScript | JSONP
+          </p>
+          <img src="./images/project-marking-tool.jpg" class="project-image-1" style="width:100%" alt="">
+        </div>
+        <nav>
+          <a href="http://mark.brobyn.com/tutor/marking"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Demo</button></a>
+          <button class="w3-button  w3-padding-medium w3-hover-black"
+            onclick="(function(){ clickAbout('project-marking-tool')})()">About</button>
+          <a href="https://github.com/MarkBrobyn/marking-tool"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Code</button></a>
+        </nav>
+      </div>
+    </div>
+    <!-- END PROJECT - Marking Tool  -->
+
+    <!-- PROJECT - Victoria's Music  -->
+    <div class=" w3-half w3-center">
+      <div class="w3-container w3-center">
+        <h4>Victoria's Music</h4>
+        <div class="project" id="project-victorias-music">
+          <p class="project-text">
+            A curated selection of YouTube piano tutorials within a single page app created to help my daughter learn
+            the pieces.<br>
+            <br>
+            <br>
+            HTML | CSS | JavaScript | JSON
+          </p>
+          <img src="./images/project-victorias- music.jpg" class="project-image-1" style="width:100%" alt="">
+        </div>
+        <nav>
+          <a href="http://victoria.brobyn.com/music"><button
+              class="w3-button w3-padding-medium w3-hover-black">Demo</button></a>
+          <button class="w3-button  w3-padding-medium w3-hover-black"
+            onclick="(function(){ clickAbout('project-victorias-music')})()">About</button>
+          <a href="https://github.com/MarkBrobyn/victorias-music"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Code</button></a>
+        </nav>
+      </div>
+    </div>
+    <!-- END PROJECT - Victoria's Music  -->
+
+
+    <!-- PROJECT - WebApp Website  -->
+    <div class="w3-half w3-center">
+      <div class="w3-container w3-center">
+        <h4>Single Page Website</h4>
+        <div class="project" id="webapp-website">
+          <p class="project-text">
+            A single page website using dynamically toggled visibilty of sections for navigation.<br>
+            <br>
+            <br>
+            HTML | CSS | JavaScript
+          </p>
+          <img src="./images/project-web-app.png" style="width:100%" alt="">
+        </div>
+        <nav>
+          <a href="http://webapp.devd.uk/"><button class="w3-button  w3-padding-medium w3-hover-black">Demo</button></a>
+          <button class="w3-button  w3-padding-medium w3-hover-black"
+            onclick="(function(){ clickAbout('webapp-website')})()">About</button>
+          <a href="https://github.com/MarkBrobyn/webapp-website"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Code</button></a>
+        </nav>
+      </div>
+    </div>
+    <!-- END PROJECT - WebApp Website  -->
+
+    <!-- PROJECT - Slides  -->
+    <div class=" w3-half w3-center">
+      <div class="w3-container w3-center">
+        <h4>Online Slides</h4>
+        <div class="project" id="project-slides">
+          <p class="project-text">
+            A way to present a HMTL document as slides.<br>
+            <br>
+            Use T to toggle between Slide and Page mode, in Slide mode use enter to toggle Overview mode. <br>
+            (not mobile friendly)
+            <br>
+            HTML | CSS | JavaScript
+          </p>
+          <img src="./images/project-slides.jpg" style="width:100%" alt="">
+        </div>
+        <nav>
+          <a href="http://mark.brobyn.com/tutor/array"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Demo</button></a>
+          <button class="w3-button  w3-padding-medium w3-hover-black"
+            onclick="(function(){ clickAbout('project-slides')})()">About</button>
+            <a href="https://github.com/MarkBrobyn/slides"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Code</button></a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- PROJECT - Mark Art  -->
+    <div class=" w3-half w3-center">
+      <div class="w3-container w3-center">
+        <h4>Art Website</h4>
+        <div class="project" id="project-mark-art">
+          <p class="project-text">
+            A basic art website using the PhotoSwipe library.<br>
+            <br>
+            <br>
+            HTML | CSS | JavaScript
+          </p>
+          <img src="./images/project-mark-art.jpg" style="width:100%" alt="">
+        </div>
+        <nav>
+          <a href="http://mark.brobyn.com/art/"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Demo</button></a>
+          <button class="w3-button  w3-padding-medium w3-hover-black"
+            onclick="(function(){ clickAbout('project-mark-art')})()">About</button>
+            <a href="https://github.com/MarkBrobyn/mark-art"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Code</button></a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- PROJECT - Shaders  -->
+    <div class=" w3-half w3-center">
+      <div class="w3-container w3-center">
+        <h4>Shaders (Three.js)</h4>
+        <div class="project" id="project-shaders">
+          <p class="project-text">
+            An example of shaders using Three.js.<br>
+            <br>
+            <br>
+            HTML | CSS | JavaScript | Three.js
+          </p>
+          <img src="./images/project-shaders.jpg" style="width:100%" alt="">
+        </div>
+        <nav>
+          <a href="http://brobyn.com/3d/shaders/"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Demo</button></a>
+          <button class="w3-button  w3-padding-medium w3-hover-black"
+            onclick="(function(){ clickAbout('project-shaders')})()">About</button>
+            <a href="https://github.com/MarkBrobyn/shaders"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Code</button></a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- PROJECT - 3D -->
+    <div class=" w3-half w3-center">
+      <div class="w3-container w3-center">
+        <h4>3D (Three.js)</h4>
+        <div class="project" id="project-3d">
+          <p class="project-text">
+            An example of 3D using Three.js.<br>
+            <br>
+            <br>
+            HTML | CSS | JavaScript | Three.js
+          </p>
+          <img src="./images/project-3d.jpg" style="width:100%" alt="">
+        </div>
+        <nav>
+          <a href="http://brobyn.com/3d/dataviz/"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Demo</button></a>
+          <button class="w3-button  w3-padding-medium w3-hover-black"
+            onclick="(function(){ clickAbout('project-3d')})()">About</button>
+            <a href="https://github.com/MarkBrobyn/3D"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Code</button></a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- PROJECT - PORTFOLIO  -->
+    <div class=" w3-half w3-center">
+      <div class="w3-container w3-center">
+        <h4>Portfolio Website</h4>
+        <div class="project" id="project-portfolio-website">
+          <p class="project-text">
+            A portfolio website.<br>
+            <br>
+            <br>
+            HTML | CSS | JavaScript | AJAX | PHP
+          </p>
+          <img src="./images/project-portfolio-website.jpg" style="width:100%" alt="">
+        </div>
+        <nav>
+          <a href="http://mark.brobyn.com/cvdev"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Demo</button></a>
+          <button class="w3-button  w3-padding-medium w3-hover-black"
+            onclick="(function(){ clickAbout('project-portfolio-website')})()">About</button>
+            <a href="https://github.com/MarkBrobyn/portfolio"><button
+              class="w3-button  w3-padding-medium w3-hover-black">Code</button></a>
+        </nav>
+      </div>
+    </div>
+
+  </div>
+  <!-- END OF: Container (Project Section) -->
+
+
+  <!-- Contact - sky-blue.jpg - parallax image  -->
+  <div class="bgimg-sky-blue w3-display-container w3-opacity-min">
+    <div class="w3-display-middle">
+      <span class="w3-xxxlarge w3-text-white w3-wide">Contact</span>
+    </div>
+  </div>
+
+  <!-- Container (Contact Section) -->
+  <div class="w3-content w3-container w3-padding-64" id="contact">
+    <h3 class="w3-center">Contact</h3>
+
+    <div class="w3-row w3-padding-32 w3-section">
+      <div class="w3-col m8 w3-panel">
+        <div class="w3-large w3-margin-bottom">
+          <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Address: London, UK<br>
+          <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: 07435954688 [+44
+          7435954688]<br>
+          <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email:
+          mark.brobyn@gmail.com<br>
+        </div>
+        <p>Phone, email, or simply leave a message here:</p>
+
+        <!-- FORM -->
+        <form id="formContact" onsubmit="return false">
+          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-half">
+              <input maxlength="64" class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+            </div>
+            <div class="w3-half">
+              <input maxlength="128" class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+            </div>
+          </div>
+          <textarea maxlength="1024" class="w3-input w3-border" placeholder="Message" required
+            name="Message"></textarea>
+          <button onclick="formOnSubmit(event)" class="w3-button w3-black w3-right w3-section" type="submit">
+            <i class="fa fa-paper-plane"></i> &nbsp;&nbsp;Send
+          </button>
+        </form>
+        <!-- END FORM -->
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+    <div id="month-year"></div>
+    <br>
+    <a href="#mark" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+    <div class="w3-xlarge w3-section">
+      <a href="https://www.linkedin.com/in/mark-brobyn-299082110/"><i
+          class="fa-brands fa-linkedin w3-hover-opacity"></i></a>
+      <a href="https://github.com/MarkBrobyn"><i class="fa-brands fa-github w3-hover-opacity"></i></a>
+      <a href="https://www.youtube.com/@markbrobyn"><i class="fa-brands fa-youtube w3-hover-opacity"></i></a>
+      <a href="https://www.instagram.com/markbrobyn/"><i class="fa-brands fa-instagram w3-hover-opacity"></i></a>
+      <a href="https://www.facebook.com/markbrobyn/"><i class="fa-brands fa-facebook w3-hover-opacity"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+
+    // Change style of navbar on scroll
+    window.onscroll = function () {
+      scrollNavBar()
+    };
+
+    function scrollNavBar() {
+      var navbar = document.getElementById("myNavbar");
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+      } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+      }
+    }
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function toggleFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+
+    function clickAbout(e) {
+      var v = document.getElementById(e).children.item(1).style.visibility
+      if (v == "visible" || v == "" || v == "initial") {
+        document.getElementById(e).children.item(1).style.visibility = "hidden";
+      } else {
+        document.getElementById(e).children.item(1).style.visibility = "initial";
+      }
+    }
+
+    function formOnSubmit(e) {
+      setTimeout(function () {
+        theForm = document.getElementById("formContact")
+        theForm.elements["Name"].value = ""
+        theForm.elements["Email"].value = ""
+        theForm.elements["Message"].value = ""
+      }, 2000)
+    }
+
+    function getMonthYear() {
+      const date = new Date();
+      const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+        "November", "December"
+      ]
+      return months[date.getMonth()] + " - " + date.getFullYear();
+    }
+
+    function displayMonthYear(id) {
+      document.getElementById(id).innerHTML = getMonthYear()
+    }
+
+    displayMonthYear("month-year")
+  </script>
+
+</body>
+
+</html>
