@@ -185,9 +185,7 @@
           In the project section of this portfolio webite there are...
         </p>
         <p>
-          Night great. Man gathered, rule deep fly fruitful lights give. Fifth seasons light signs midst let dry itself
-          lesser our fruit grass meat, fourth tree lesser, our. Fifth sea darkness. Bearing given Don't likeness,
-          yielding creepeth third.
+          This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text.
         </p>
       </div>
     </div>
@@ -204,9 +202,7 @@
           Curently working as a online tutor for a london university assisting students to learn to program
         </p>
         <p>
-          Night great. Man gathered, rule deep fly fruitful lights give. Fifth seasons light signs midst let dry itself
-          lesser our fruit grass meat, fourth tree lesser, our. Fifth sea darkness. Bearing given Don't likeness,
-          yielding creepeth third.
+          This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text.
         </p>
       </div>
     </div>
@@ -218,9 +214,7 @@
       <div class="w3-quarter w3-container"></div>
       <div class="w3-half w3-container">
         <p>
-          Shall fruit moving waters that. Sea life face shall. Let. Don't every us waters, kind blessed their spirit
-          whales let greater forth. Behold creeping he for fly replenish made cattle their there his male earth yielding
-          third his evening lights.
+          This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text. This is some filler text in place until I create other more relevent text.
         </p>
         <p>
           <ul>
@@ -285,7 +279,7 @@
             <br>
             HTML | CSS | JavaScript | JSON
           </p>
-          <img src="./images/project-victorias- music.jpg" class="project-image-1" style="width:100%" alt="">
+          <img src="./images/project-victorias-music.jpg" class="project-image-1" style="width:100%" alt="">
         </div>
         <nav>
           <a href="http://victoria.brobyn.com/music"><button
@@ -440,7 +434,7 @@
               class="w3-button  w3-padding-medium w3-hover-black">Demo</button></a>
           <button class="w3-button  w3-padding-medium w3-hover-black"
             onclick="(function(){ clickAbout('project-portfolio-website')})()">About</button>
-            <a href="https://github.com/MarkBrobyn/portfolio"><button
+            <a href="https://github.com/MarkBrobyn/cvdev-portfolio"><button
               class="w3-button  w3-padding-medium w3-hover-black">Code</button></a>
         </nav>
       </div>
@@ -474,18 +468,20 @@
 
         <!-- FORM -->
         <form id="formContact" onsubmit="return false">
-          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+        <!-- <form id="formContact" action="send.php" method="post"> -->
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
             <div class="w3-half">
-              <input maxlength="64" class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+              <input maxlength="64" class="w3-input w3-border" type="text" placeholder="Name" required name="name">
             </div>
             <div class="w3-half">
-              <input maxlength="128" class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+              <input maxlength="128" class="w3-input w3-border" type="text" placeholder="Email" required name="email">
             </div>
           </div>
           <textarea maxlength="1024" class="w3-input w3-border" placeholder="Message" required
-            name="Message"></textarea>
-          <button onclick="formOnSubmit(event)" class="w3-button w3-black w3-right w3-section" type="submit">
-            <i class="fa fa-paper-plane"></i> &nbsp;&nbsp;Send
+            name="message"></textarea>
+          <button onclick="sendAJAXPHP()" class="w3-button w3-black w3-right w3-section" type="submit">
+          <!-- <button class="w3-button w3-black w3-right w3-section" type="submit"> -->
+            <i class="fa fa-paper-plane"></i> &nbsp;&nbsp;<span id="buttonSendLabel">Send</span> 
           </button>
         </form>
         <!-- END FORM -->
@@ -551,9 +547,35 @@
       }
     }
 
+    function sendAJAXPHP() {
+      let theForm = document.getElementById("formContact")
+      const formData = new FormData();
+      formData.append("name", theForm.elements["name"].value)
+      formData.append("email", theForm.elements["email"].value)
+      formData.append("message", theForm.elements["message"].value)
+      //console.log(formData)
+      let theButton = document.getElementById("buttonSendLabel");
+      theButton.innerHTML = "Sending"
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onload = function () {
+        theButton.innerHTML = "Sent"
+        //document.getElementById("myOutput").innerHTML = this.responseText;
+        setTimeout(function(){
+          theButton.innerHTML="Send"
+          theForm.elements["name"].value = ""
+          theForm.elements["email"].value = ""
+          theForm.elements["message"].value = ""
+        },3000)
+      }
+      xmlhttp.open("POST", "send.php");
+      // xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      //xmlhttp.setRequestHeader("Content-type", "multipart/form-data");
+      xmlhttp.send(formData);
+    }
+
     function formOnSubmit(e) {
       setTimeout(function () {
-        theForm = document.getElementById("formContact")
+        let theForm = document.getElementById("formContact")
         theForm.elements["Name"].value = ""
         theForm.elements["Email"].value = ""
         theForm.elements["Message"].value = ""
